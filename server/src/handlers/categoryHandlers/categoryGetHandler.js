@@ -2,7 +2,7 @@ const categoryGetController = require('../../controllers/categoryControllers/cat
 
 const categoryGetHandler = async (req,res) => {
     try {
-        // const {message} = req.params;
+        // const {message} = req.params; 
         // console.log(message);
         const result = await categoryGetController() 
         res.status(200).json(result)
