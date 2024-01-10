@@ -9,4 +9,4 @@ const categoryDeleteController = async (id) => {
     }
 }
 
-module.exports = categoryDeleteController
+module.exports = categoryDeleteController 
