@@ -7,6 +7,6 @@ const categoryDeleteController = async (id) => {
     }else{
         return { message: "There is no category with that id" }
     }
-}
+} 
 
 module.exports = categoryDeleteController 
