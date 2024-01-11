@@ -9,7 +9,7 @@ const routes = Router()
 
 routes.use('/', categoryPostRoute)
 routes.use('/', categoryGetRoute)
-routes.use('/', categoryDeleteRoute)
+routes.use('/', categoryDeleteRoute) 
 
 
 module.exports = routes
