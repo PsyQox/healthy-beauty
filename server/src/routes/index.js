@@ -5,7 +5,7 @@ const categoryDeleteRoute = require('./categoryRoutes/categoryDeleteRoute')
 
 const routes = Router()
 
-
+ 
 
 routes.use('/', categoryPostRoute)
 routes.use('/', categoryGetRoute)
