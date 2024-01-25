@@ -2,4 +2,4 @@ const { Router } = require('express')
 
 const categoryPutRoute = Router()
 
-categoryPutRoute("/updatecategory")
+categoryPutRoute("/updatecategory", categoryPutHandler)
