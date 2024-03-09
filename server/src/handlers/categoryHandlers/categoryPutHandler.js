@@ -5,7 +5,6 @@ const categoryPutHandler = async (req, res) => {
     const { id } = req.params
     const { image, name, description } = req.body
     if (!id.trim()) res.status(401).json({error: "ID not provided"}) 
-
     try {
         const response = await categoryUpdateController({id, image, name, description})
         if (response[0] === 1) {
