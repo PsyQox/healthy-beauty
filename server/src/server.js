@@ -16,6 +16,11 @@ server.use(cors({
 
 server.use('/', routes)
 
+server.use(function(err, req, res, next) {
+    console.error(err.stack);
+    res.status(500).json({ error: "Something is wrong!"});
+  });
+ 
 
 
 module.exports = server

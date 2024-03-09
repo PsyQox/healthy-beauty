@@ -3,6 +3,6 @@ const categoryPutHandler = require('../../handlers/categoryHandlers/categoryPutH
 
 const categoryPutRoute = Router()
 
-categoryPutRoute.put("/updatecategory", categoryPutHandler)
+categoryPutRoute.put("/updatecategory/:id", categoryPutHandler)
 
 module.exports = categoryPutRoute
