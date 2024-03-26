@@ -1,18 +1,18 @@
-const { tbl_category } = require('../../db')
+const { tbl_service } = require('../../db')
 const {Op} = require('sequelize')
 
-const categoryGetController = (categoryName) => {
-    if (categoryName) {
-        const categories = tbl_category.findAll({where:{
+const serviceGetController = (serviceName) => {
+    if (serviceName) {
+        const services = tbl_service.findAll({where:{
             name:{
-                [Op.iLike]: `%${categoryName}%`
+                [Op.iLike]: `%${serviceName}%`
             }
         }})
-        return categories
+        return services
     }else{
-        const categories = tbl_category.findAll()
-        return categories
+        const services = tbl_service.findAll()
+        return services
     }
 }
 
-module.exports = categoryGetController
+module.exports = serviceGetController
