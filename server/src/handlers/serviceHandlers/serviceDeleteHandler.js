@@ -1,14 +1,15 @@
-const categoryDeleteController = require('../../controllers/categoryControllers/categoryDeleteController')
+const serviceDeleteController = require("../../controllers/serviceControllers/serviceDeleteController")
 
 
-const categoryDeleteHandler = async (req, res)=>{
+const serviceDeleteHandler = async (req, res)=>{
+    const { id } = req.params
+    if (!id.trim()) return res.status(401).json({ error: "No ID provided" })
     try {
-        const { id } = req.params
-        const result = await categoryDeleteController(id)
+        const result = await serviceDeleteController(id)
         res.status(200).json(result)
     } catch (error) {
         res.status(500).json({error: error.message})
     }
 }
 
-module.exports = categoryDeleteHandler
+module.exports = serviceDeleteHandler

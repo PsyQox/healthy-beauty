@@ -1,9 +1,9 @@
 const { Router } = require('express')
-const categoryDeleteHandler = require('../../handlers/categoryHandlers/catergoryDeleteHandler')
+const serviceDeleteHandler = require('../../handlers/serviceHandlers/serviceDeleteHandler')
 
-const categoryDeleteRoute = Router()
+const serviceDeleteRoute = Router()
 
-categoryDeleteRoute.delete('/deletecategory/:id', categoryDeleteHandler)
+serviceDeleteRoute.delete('/deleteservice/:id', serviceDeleteHandler)
 
 
-module.exports = categoryDeleteRoute
+module.exports = serviceDeleteRoute

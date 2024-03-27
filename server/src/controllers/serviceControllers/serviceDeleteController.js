@@ -1,12 +1,14 @@
-const {tbl_category} = require('../../db')
+const { tbl_service } = require('../../db')
 
-const categoryDeleteController = async (id) => {
-    const result = await tbl_category.destroy({where: {id: id}})
+const serviceDeleteController = async (id) => {
+    
+    const result = await tbl_service.destroy({where: { id: id }});
+
     if (result === 1) {
-        return { message: "Delete category successfully" }
+        return { message: "Delete service successfully" };
     }else{
-        return { message: "There is no category with that id" }
+        return { message: "There is no service with that id" };
     }
 } 
 
-module.exports = categoryDeleteController 
+module.exports = serviceDeleteController 
