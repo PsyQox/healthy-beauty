@@ -21,7 +21,7 @@ const serviceAddController = async ({ image, name, description, price, tblCatego
         throw error
     }
 
-    return result
+    return result[0]
 }
 
 module.exports = serviceAddController
