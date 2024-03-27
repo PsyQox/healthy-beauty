@@ -1,9 +1,9 @@
-const categoryUpdateController = require('../../controllers/categoryControllers/categoryUpdateController')
+// const categoryUpdateController = require('../../controllers/categoryControllers/categoryUpdateController')
 
 
 const categoryPutHandler = async (req, res) => {
     const { id } = req.params
-    const { image, name, description } = req.body
+    const { image, name, description, tblCategoryId } = req.body
     if (!id.trim()) res.status(401).json({error: "ID not provided"}) 
     try {
         const response = await categoryUpdateController({id, image, name, description})

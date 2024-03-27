@@ -1,8 +1,9 @@
-const { tbl_category } = require('../../db')
+const { tbl_service } = require('../../db')
 
 
-const categoryUpdateController = ({ id, image, name, description })=>{
-const response =  tbl_category.update({ image:image, name:name, description:description }, {
+const serviceUpdateController = ({ id, image, name, description, tblCategoryId})=>{
+
+  const response =  tbl_service.update({ image:image, name:name, description:description, tblCategoryId: tblCategoryId}, {
     where: {
       id: id
     }
@@ -11,4 +12,11 @@ const response =  tbl_category.update({ image:image, name:name, description:desc
   return response
 }
 
-module.exports = categoryUpdateController
+module.exports = serviceUpdateController
+
+
+// "image": "URL"<,
+// "name" : "Canino",
+// "description": "none",
+// "price": 1,
+// "tblCategoryId": "4c0079e4-2c4f-4a80-a7c1-b0be0865b6c8"
