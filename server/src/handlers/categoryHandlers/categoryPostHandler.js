@@ -3,7 +3,7 @@ const categoryAddController = require('../../controllers/categoryControllers/cat
 
 const categoryPostHandler = async (req, res) => {
     const { image, name, description } = req.body;
-    if (!image || !name || !description) res.status(401).json({ error:'Missing data' })  
+    if (!image.trim() || !name.trim() || !description.trim()) return res.status(401).json({ error:'Missing data' })  
     try {
         const result = await categoryAddController({ image, name, description })
         res.status(201).json(result)    

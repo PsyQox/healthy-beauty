@@ -1,10 +1,27 @@
-const { tbl_category } = require('../../db')
+const { tbl_service } = require('../../db')
 
-const categoryAddController = ({ image, name, description }) => {
+const serviceAddController = async ({ image, name, description, price, tblCategoryId }) => {
     
-    const result = tbl_category.create({ image, name, description })
+    const result = await tbl_service.findOrCreate({
+        where: {
+            name: name,
+            tblCategoryId: tblCategoryId
+        },
+        defaults: { 
+            image, 
+            name, 
+            description, 
+            price 
+        }
+    });
+
+    if (!result[1]) {
+        const error = new Error('Duplicate services are not allowed!');
+        error.status = 409;
+        throw error
+    }
 
     return result
 }
 
-module.exports = categoryAddController
+module.exports = serviceAddController

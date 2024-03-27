@@ -1,7 +1,8 @@
 const { Router } = require('express')
-const categoryPostHandler = require('../../handlers/categoryHandlers/categoryPostHandler')
-const categoryPostRoute = Router()
+const servicePostHandler = require('../../handlers/serviceHandlers/servicePostHandler')
 
-categoryPostRoute.post('/addcategory', categoryPostHandler)
+const servicePostRoute = Router()
 
-module.exports = categoryPostRoute
+servicePostRoute.post('/addservice', servicePostHandler)
+
+module.exports = servicePostRoute

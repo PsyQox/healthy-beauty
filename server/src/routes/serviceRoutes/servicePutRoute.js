@@ -1,8 +1,8 @@
 const { Router } = require('express')
-const categoryPutHandler = require('../../handlers/categoryHandlers/categoryPutHandler')
+// const categoryPutHandler = require('../../handlers/categoryHandlers/categoryPutHandler')
 
-const categoryPutRoute = Router()
+const servicePutRoute = Router()
 
-categoryPutRoute.put("/updatecategory/:id", categoryPutHandler)
+servicePutRoute.put("/updateservice/:id", categoryPutHandler)
 
-module.exports = categoryPutRoute
+module.exports = servicePutRoute

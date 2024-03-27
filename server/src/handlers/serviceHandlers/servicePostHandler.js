@@ -1,16 +1,17 @@
-const categoryAddController = require('../../controllers/categoryControllers/categoryAddController')
+const serviceAddController = require("../../controllers/serviceControllers/serviceAddController");
 
 
-const categoryPostHandler = async (req, res) => {
-    const { image, name, description } = req.body;
-    if (!image || !name || !description) res.status(401).json({ error:'Missing data' })  
-    try {
-        const result = await categoryAddController({ image, name, description })
+
+const servicePostHandler = async (req, res) => {
+    const { image, name, description, price, tblCategoryId } = req.body;
+    if (!image.trim() || !name.trim() || !description.trim() || !price || !tblCategoryId.trim()) return res.status(401).json({ error:'Missing data' })  
+    try { 
+        const result = await serviceAddController({ image, name, description, price, tblCategoryId })
         res.status(201).json(result)    
     } catch (error) {
-        res.status(500).json({ error:error.message })
+        res.status(error.status || 500).json({ error:error.message })
     }
     
 }
 
-module.exports = categoryPostHandler
+module.exports = servicePostHandler
