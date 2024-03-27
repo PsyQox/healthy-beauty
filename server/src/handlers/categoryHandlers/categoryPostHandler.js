@@ -8,7 +8,7 @@ const categoryPostHandler = async (req, res) => {
         const result = await categoryAddController({ image, name, description })
         res.status(201).json(result)    
     } catch (error) {
-        res.status(500).json({ error:error.message })
+        res.status(error.status || 500).json({ error:error.message })
     }
     
 }
