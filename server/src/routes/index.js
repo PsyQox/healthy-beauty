@@ -6,6 +6,7 @@ const categoryPutRoute = require('./categoryRoutes/categoryPutRoute');
 const serviceGetRoute = require('./serviceRoutes/serviceGetRoute');
 const servicePostRoute = require('./serviceRoutes/servicePostRoute');
 const serviceDeleteRoute = require('./serviceRoutes/serviceDeleteRoute');
+const servicePutRoute = require('./serviceRoutes/servicePutRoute');
 
 const routes = Router()
 
@@ -18,5 +19,6 @@ routes.use('/', categoryPutRoute)
 routes.use('/', serviceGetRoute)
 routes.use('/', servicePostRoute)
 routes.use('/', serviceDeleteRoute)
+routes.use('/', servicePutRoute)
 
 module.exports = routes

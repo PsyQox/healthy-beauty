@@ -1,12 +1,13 @@
-// const categoryUpdateController = require('../../controllers/categoryControllers/categoryUpdateController')
+const serviceUpdateController = require("../../controllers/serviceControllers/serviceUpdateController")
 
 
-const categoryPutHandler = async (req, res) => {
+const servicePutHandler = async (req, res) => {
     const { id } = req.params
-    const { image, name, description, tblCategoryId } = req.body
-    if (!id.trim()) return res.status(401).json({error: "ID not provided"}) 
+    const { image, name, description, price, tblCategoryId } = req.body
+    if (!id.trim() || !tblCategoryId.trim()) return res.status(401).json({error: "ID or Category ID not provided"}) 
     try {
-        const response = await categoryUpdateController({id, image, name, description})
+        
+        const response = await serviceUpdateController({id, image, name, description, price, tblCategoryId})
         if (response[0] === 1) {
             res.status(200).json({message: "Successful update"})
         }else{
@@ -18,4 +19,4 @@ const categoryPutHandler = async (req, res) => {
     }
 }
 
-module.exports = categoryPutHandler
+module.exports = servicePutHandler
