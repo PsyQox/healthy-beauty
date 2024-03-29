@@ -14,9 +14,3 @@ const serviceUpdateController = ({ id, image, name, description, price, tblCateg
 
 module.exports = serviceUpdateController
 
-
-// "image": "URL"<,
-// "name" : "Canino",
-// "description": "none",
-// "price": 1,
-// "tblCategoryId": "4c0079e4-2c4f-4a80-a7c1-b0be0865b6c8"
