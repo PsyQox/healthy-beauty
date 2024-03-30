@@ -13,8 +13,8 @@ const categoryPutHandler = async (req, res) => {
             res.status(500).json({message: "Nothing was updated"})
         }
     } catch (error) {
-        res.status(500).json({ error: error.message })
-    } 
+        res.status(500).json({ error: error.message }) 
+    }  
 }
 
 module.exports = categoryPutHandler
