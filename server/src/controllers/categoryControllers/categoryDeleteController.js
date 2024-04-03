@@ -5,7 +5,7 @@ const categoryDeleteController = async (id) => {
     if (result === 1) {
         return { message: "Delete category successfully" }
     }else{
-        return { message: "There is no category with that id" }
+        return { message: "There is no category with that id" } 
     }
 } 
 
