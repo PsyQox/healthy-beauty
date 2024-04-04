@@ -32,5 +32,6 @@ module.exports = {
     connection: sequelize,
     tbl_user,
     tbl_category,
-    tbl_service
+    tbl_service,
+    tbl_publication
 }
