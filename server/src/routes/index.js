@@ -8,6 +8,7 @@ const servicePostRoute = require('./serviceRoutes/servicePostRoute');
 const serviceDeleteRoute = require('./serviceRoutes/serviceDeleteRoute');
 const servicePutRoute = require('./serviceRoutes/servicePutRoute');
 const publicationGetRoute = require('./publicationRoutes/publicationGetRoute')
+const publicationPostRoute = require('./publicationRoutes/publicationPostRoute')
 
 const routes = Router()
 
@@ -21,5 +22,6 @@ routes.use('/', servicePostRoute)
 routes.use('/', serviceDeleteRoute)
 routes.use('/', servicePutRoute)
 routes.use('/', publicationGetRoute)
+routes.use('/', publicationPostRoute)
 
 module.exports = routes
