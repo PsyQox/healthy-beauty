@@ -26,12 +26,19 @@ const uploadFile = (props) => {
         }
       })
       // Esta funcion determina el filtro de que tipo de imagenes acepta y que tipo no
-    const fileFilter = (req, file, cb)=>{
+    const fileFilter = (req, file, cb) => {
         //Se responde con un callback con primer parametro nulo y el segundo boolean
-        // cb(null, true)
+        const arrayImg = file.originalname.split('.')
+        const typeOfImg = arrayImg[arrayImg.length - 1]
+
+        if (typeOfImg === 'jpg' || typeOfImg === 'jpeg' || typeOfImg === 'png') {
+            cb(null, true)
+        }else{
+            cb(null, false)
+        }
     }
       
-      const upload = multer({storage: storage})
+      const upload = multer({storage: storage, fileFilter: fileFilter})
 
       return upload
 }

@@ -6,9 +6,9 @@ const categoryPostHandler = async (req, res) => {
     console.log(file);
     const { name, description } = req.body;
     console.log(name, description);
-    saveImage(file)
+    // saveImage(file)
+    if (!file || !name.trim() || !description.trim()) return res.status(401).json({ error:'Missing data' })  
     res.send('ruta cat')
-    // if (!image.trim() || !name.trim() || !description.trim()) return res.status(401).json({ error:'Missing data' })  
     try {
         // const result = await categoryAddController({ image, name, description })
         // res.status(201).json(result)    
@@ -20,7 +20,7 @@ const categoryPostHandler = async (req, res) => {
 
 const saveImage = (file)=>{
     const arrayImg = file.originalname.split('.')
-    const typeOfImg = arrayImg.pop()
+    const typeOfImg = arrayImg[arrayImg.length - 1]
     console.log(typeOfImg);
     //PNG, JPEG
 
