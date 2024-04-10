@@ -3,6 +3,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const routes = require('./routes')
 // const multer = require('multer')
+const path = require('path')
 const fs = require('node:fs')
 
 // const upload = multer({ dest: 'uploads/' })
@@ -20,24 +21,32 @@ server.use(cors({
 
 server.use('/', routes)
 
-// server.post('/image', upload.single('img'), (req, res)=>{
-//   console.log(req.file);
-//   saveImage(req.file)
-//   res.send("hola");
-// });
+server.get('/image/:nameImage', (req, res) => {
+  const { nameImage } = req.params
 
-// const saveImage = (file)=>{
-//     const newPath = `./uploads/${file.originalname}`
-//     const newPath2 = `./uploads/${file.filename}.jpg`
-//     fs.renameSync(file.path, newPath2)
-//     return newPath
-// }
+  const urlImage = path.join(__dirname, '../uploads/' + nameImage)
+
+  fs.access(urlImage, (err) => {
+    if (err) {
+        console.log("no existe");
+        res.status()
+    }else{
+      console.log("si existe");
+      res.status(200).send("hola")
+    }
+  })
+
+  console.log(urlImage);
+  // res.status(200).sendFile(urlImage)
+})
+
+
 
 server.use(function(err, req, res, next) {
     console.error(err.stack);
     res.status(500).json({ error: "Something is wrong!"});
   });
- 
+
 
 
 module.exports = server

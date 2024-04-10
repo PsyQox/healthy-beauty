@@ -28,4 +28,5 @@ routes.use('/', publicationPostRoute)
 routes.use('/', publicationDeleteRoute)
 routes.use('/', publicationPutRoute)
 
+
 module.exports = routes
