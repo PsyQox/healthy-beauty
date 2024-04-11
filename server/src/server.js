@@ -32,7 +32,7 @@ server.get('/image/:nameImage', (req, res) => {
         res.status()
     }else{
       console.log("si existe");
-      res.status(200).send("hola")
+      res.status(200).sendFile(urlImage)
     }
   })
 
