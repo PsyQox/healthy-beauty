@@ -11,7 +11,7 @@ const categoryPostHandler = async (req, res) => {
     res.send('ruta cat')
     try {
         // const result = await categoryAddController({ image, name, description })
-        // res.status(201).json(result)    
+        // res.status(201).json(result)     
     } catch (error) {
         res.status(error.status || 500).json({ error:error.message }) 
     }
