@@ -1,13 +1,15 @@
+require('dotenv').config()
 const { tbl_category } = require('../../db')
+const { URL_SERVER } = process.env
 
 const categoryAddController = async ({ image, name, description }) => {
-    
+    const imageURL = `${URL_SERVER}/categoryimage/${image}`
     const result = await tbl_category.findOrCreate({
         where: {
             name: name
         },
         defaults:{
-            image,  
+            image: imageURL,  
             description 
         }})
     

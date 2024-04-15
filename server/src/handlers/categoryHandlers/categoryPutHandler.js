@@ -2,16 +2,28 @@ const categoryUpdateController = require('../../controllers/categoryControllers/
 
 
 const categoryPutHandler = async (req, res) => {
+    const file = req.file 
     const { id } = req.params
-    const { image, name, description } = req.body
+    const { name, description } = req.body
     if (!id.trim()) return res.status(401).json({error: "ID not provided"}) 
     try {
-        const response = await categoryUpdateController({id, image, name, description})
-        if (response[0] === 1) {
-            res.status(200).json({message: "Successful update"})
+        if(file){
+            const image = file.filename
+            const response = await categoryUpdateController({id, image, name, description})
+            if (response[0] === 1) {
+                res.status(200).json({message: "Successful update"})
+            }else{
+                res.status(500).json({message: "Nothing was updated"})
+            }
         }else{
-            res.status(500).json({message: "Nothing was updated"})
+            const response = await categoryUpdateController({id, name, description})
+            if (response[0] === 1) {
+                res.status(200).json({message: "Successful update"})
+            }else{
+                res.status(500).json({message: "Nothing was updated"})
+            }
         }
+        
     } catch (error) {
         res.status(500).json({ error: error.message }) 
     }  
