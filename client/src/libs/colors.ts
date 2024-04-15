@@ -1,4 +1,4 @@
-import { colorText, colors } from './defintions';
+import { colors } from './defintions';
 
 
 export const myColors: colors = {
@@ -7,8 +7,3 @@ export const myColors: colors = {
     terciary: '#F9F9E0',
     quaternary: '#8ACDD7'
 };
-
-export const textColors: colorText = {
-    primary:'',
-    secundary:''
-}
