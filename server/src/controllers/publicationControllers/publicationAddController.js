@@ -1,8 +1,11 @@
+require('dotenv').config()
 const { tbl_publication } = require('../../db')
+const { URL_SERVER } = process.env
 
 const publicationAddController = async ({ title, description, files, tblUserId }) => {
     const arrayImagesName = files?.map((file)=>{
-        return file.filename
+        const imageURL = `${URL_SERVER}/publicationimage/${file.filename}`
+        return imageURL
     }) || []
     
     if (arrayImagesName.length !== 0) {
