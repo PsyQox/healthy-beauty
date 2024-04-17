@@ -3,8 +3,8 @@ const { tbl_publication } = require('../../db')
 const publicationAddController = async ({ title, description, files, tblUserId }) => {
     const arrayImagesName = files?.map((file)=>{
         return file.filename
-    })
-
+    }) || []
+    
     if (arrayImagesName.length !== 0) {
         const result = await tbl_publication.create({ 
             title,
