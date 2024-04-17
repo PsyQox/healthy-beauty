@@ -12,6 +12,7 @@ const publicationGetRoute = require('./publicationRoutes/publicationGetRoute')
 const publicationPostRoute = require('./publicationRoutes/publicationPostRoute');
 const publicationDeleteRoute = require('./publicationRoutes/publicationDeleteRoute');
 const publicationPutRoute = require('./publicationRoutes/publicationPutRoute');
+const publicationImageGetRoute = require('./publicationRoutes/publicationImageGetRoute');
 
 const routes = Router()
 
@@ -29,6 +30,6 @@ routes.use('/', publicationGetRoute)
 routes.use('/', publicationPostRoute)
 routes.use('/', publicationDeleteRoute)
 routes.use('/', publicationPutRoute)
-
+routes.use('/', publicationImageGetRoute)
 
 module.exports = routes
