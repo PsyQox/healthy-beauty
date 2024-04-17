@@ -6,7 +6,6 @@ const publicationPostHandler = async (req, res) => {
     const { title, description, tblUserId } = req.body;
     
     if (!title.trim()  || !description.trim() || !tblUserId.trim()) return res.status(401).json({ error:'Missing data' })  
-    
     try { 
        if (files.length !== 0) {
            const result = await publicationAddController({ title, files, description, tblUserId })
