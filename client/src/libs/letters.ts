@@ -1,8 +1,15 @@
-import { Italianno } from "next/font/google";
-import { K2D } from "next/font/google";
+import { Italiana, K2D } from "next/font/google";
 
+const primaryLetters = Italiana({ 
+    subsets: ['latin'], 
+    weight: "400", 
+});
+const secondaryLetter = K2D({
+    subsets:['latin'], 
+    weight:["400","500","600","700","800"]
+})
 
 export const letters = {
-    primary: Italianno,
-    secondary: K2D
+    primary: primaryLetters,
+    secondary: secondaryLetter
 };
