@@ -3,11 +3,12 @@ const publicationUpdateController = require("../../controllers/publicationContro
 
 const publicationPutHandler = async (req, res) => {
     const { id } = req.params
-    const { image, title, description, tblUserId } = req.body
+    const files = req.files
+    const { images, title, description, tblUserId } = req.body
     if (!id.trim() || !tblUserId.trim()) return res.status(401).json({error: "ID or user ID not provided"}) 
     try {
         
-        const response = await publicationUpdateController({id, image, title, description, tblUserId})
+        const response = await publicationUpdateController({id, images, title, description, tblUserId})
         if (response[0] === 1) {
             res.status(200).json({message: "Successful update"})
         }else{
