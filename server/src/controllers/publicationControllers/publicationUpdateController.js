@@ -1,9 +1,9 @@
 const { tbl_publication } = require('../../db')
 
 
-const publicationUpdateController = ({ id, title, image, description, tblUserId })=>{
+const publicationUpdateController = ({ id, title, images, description, tblUserId })=>{
   
-  const response =  tbl_publication.update({ image:image, title:title, description:description, tblUserId: tblUserId}, {
+  const response =  tbl_publication.update({ images:images, title:title, description:description, tblUserId: tblUserId}, {
     where: {
       id: id
     }
