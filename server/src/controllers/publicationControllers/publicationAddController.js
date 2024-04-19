@@ -3,8 +3,8 @@ const { tbl_publication } = require('../../db')
 const { URL_SERVER } = process.env
 
 const publicationAddController = async ({ title, description, files, tblUserId }) => {
-  
-    if (files.length !== 0) {
+    const images = files || []
+    if (images.length !== 0) {
         const arrayImagesName = files?.map((file)=>{
             const imageURL = `${URL_SERVER}/publicationimage/${file.filename}`
             return imageURL
