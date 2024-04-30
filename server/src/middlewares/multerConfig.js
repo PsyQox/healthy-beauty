@@ -1,5 +1,6 @@
 const multer = require('multer')
 const fs = require('node:fs')
+const typeOfImg = require('../utils/typeOfImg')
 
 const uploadFile = (props) => {
     const storage = multer.diskStorage({
@@ -27,15 +28,16 @@ const uploadFile = (props) => {
       })
       // Esta funcion determina el filtro de que tipo de imagenes acepta y que tipo no
     const fileFilter = (req, file, cb) => {
-        //Se responde con un callback con primer parametro nulo y el segundo boolean
-        const arrayImg = file.originalname.split('.')
-        const typeOfImg = arrayImg[arrayImg.length - 1]
+            //Se responde con un callback con primer parametro nulo y el segundo boolean
+            const typeOfImage = typeOfImg(file.originalname)
 
-        if (typeOfImg === 'jpg' || typeOfImg === 'jpeg' || typeOfImg === 'png') {
-            cb(null, true)
-        }else{
-            cb(null, false)
-        }
+            if (typeOfImage === 'jpg' || typeOfImage === 'jpeg' || typeOfImage === 'png') {
+                cb(null, true)
+            }else{
+                cb(null, false)
+            }
+        
+        
     }
       
       const upload = multer({storage: storage, fileFilter: fileFilter})
