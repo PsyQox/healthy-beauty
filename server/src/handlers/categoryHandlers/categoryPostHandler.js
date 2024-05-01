@@ -1,10 +1,15 @@
 const categoryAddController = require('../../controllers/categoryControllers/categoryAddController')
-
+const fs = require('node:fs')
 
 const categoryPostHandler = async (req, res) => {
     const file = req.file
     const { name, description } = req.body;
-    if (!file || !name.trim() || !description.trim()) return res.status(401).json({ error:'Missing data' })  
+    if (!file || !name.trim() || !description.trim()) {
+        if(file){
+            fs.unlinkSync(`./uploads/categoryImg/${file.filename}`)
+        }
+        return res.status(401).json({ error:'Missing data' }) 
+    } 
     try {
         const image = file.filename
         const result = await categoryAddController({ image, name, description })
