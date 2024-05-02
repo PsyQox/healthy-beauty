@@ -19,7 +19,6 @@ const singUpController = async ({ image, name, email, password, privilege }) => 
         }})
     
     if (!result[1]) {
-        fs.unlinkSync(`./uploads/userImg/${image}`)
         const error = new Error('Duplicate services are not allowed!');
         error.status = 409;
         throw error
