@@ -2,7 +2,6 @@ require('dotenv').config()
 const { tbl_user } = require('../../db')
 const { URL_SERVER } = process.env
 const bcrypt = require('bcrypt')
-const fs = require('node:fs')
 
 const singUpController = async ({ image, name, email, password, privilege }) => {
     const imageURL = `${URL_SERVER}/userimage/${image}`
