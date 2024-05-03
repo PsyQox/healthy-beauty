@@ -5,8 +5,8 @@ const categoryPutHandler = async (req, res) => {
     const file = req.file 
     const { id } = req.params
     const { name, description } = req.body
-    if (!id.trim()) return res.status(401).json({error: "ID not provided"}) 
     try {
+    if (!id.trim()) return res.status(401).json({error: "ID not provided"}) 
         if(file){
             const image = file.filename
             const response = await categoryUpdateController({id, image, name, description})
