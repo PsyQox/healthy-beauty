@@ -5,9 +5,8 @@ const publicationPutHandler = async (req, res) => {
     const { id } = req.params
     const files = req.files
     const {title, description, tblUserId } = req.body
-    console.log(files);
-    if (!id.trim() || !tblUserId.trim()) return res.status(401).json({error: "ID or user ID not provided"}) 
     try {
+    if (!id.trim() || !tblUserId.trim()) return res.status(401).json({error: "ID or user ID not provided"}) 
         
             const response = await publicationUpdateController({id, files, title, description, tblUserId})
             if (response[0] === 1) {

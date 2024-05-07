@@ -4,7 +4,7 @@ const { URL_SERVER } = process.env
 
 const publicationAddController = async ({ title, description, files, tblUserId }) => {
  
-    if (files) {
+    if (files.length !== 0) {
         const arrayImagesName = files?.map((file)=>{
             const imageURL = `${URL_SERVER}/publicationimage/${file.filename}`
             return imageURL
@@ -21,6 +21,7 @@ const publicationAddController = async ({ title, description, files, tblUserId }
     }else{
         const result = await tbl_publication.create({ 
             title,
+            images:files,
             description, 
             tblUserId
         });
