@@ -3,7 +3,7 @@ const categoryPostHandler = require('../../handlers/categoryHandlers/categoryPos
 const categoryPostRoute = Router()
 const uploadFile = require('../../middlewares/multerConfig')
 
-const upload = uploadFile({dest:'uploads/categoryImg/', module:'categoryPost'})
+const upload = uploadFile({dest:'uploads/categoryImg/'})
 
 categoryPostRoute.post('/addcategory', upload.single('image'), categoryPostHandler)
 
