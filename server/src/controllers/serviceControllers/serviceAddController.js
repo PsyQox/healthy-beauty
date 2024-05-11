@@ -1,14 +1,18 @@
+require('dotenv').config()
 const { tbl_service } = require('../../db')
+const { URL_SERVER } = process.env
 
 const serviceAddController = async ({ image, name, description, price, tblCategoryId }) => {
-    
+
+    const imageURL = `${URL_SERVER}/serviceimage/${image}`
+
     const result = await tbl_service.findOrCreate({
         where: {
             name: name,
             tblCategoryId: tblCategoryId
         },
         defaults: { 
-            image, 
+            image:imageURL, 
             name, 
             description, 
             price 
