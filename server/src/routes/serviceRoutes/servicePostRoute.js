@@ -4,7 +4,7 @@ const uploadFile = require('../../middlewares/multerConfig')
 
 const servicePostRoute = Router()
 
-const upload = uploadFile({dest: 'serviceImg'})
+const upload = uploadFile({dest:'uploads/serviceImg/'})
 
 servicePostRoute.post('/addservice', upload.single('image') ,servicePostHandler)
 
