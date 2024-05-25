@@ -8,6 +8,7 @@ const serviceGetRoute = require('./serviceRoutes/serviceGetRoute');
 const servicePostRoute = require('./serviceRoutes/servicePostRoute');
 const serviceDeleteRoute = require('./serviceRoutes/serviceDeleteRoute');
 const servicePutRoute = require('./serviceRoutes/servicePutRoute');
+const serviceImageGetRoute = require('./serviceRoutes/serviceImageGetRoute')
 const publicationGetRoute = require('./publicationRoutes/publicationGetRoute')
 const publicationPostRoute = require('./publicationRoutes/publicationPostRoute');
 const publicationDeleteRoute = require('./publicationRoutes/publicationDeleteRoute');
@@ -17,14 +18,16 @@ const userImageGetRoute = require('./userRoutes/userImageGetRoute');
 const singUpRoute = require('./userRoutes/singUpRoute');
 const singInRoute = require('./userRoutes/singInRoute');
 
-const routes = Router()
+const routes = Router() 
  
-routes.use('/', categoryPostRoute)
+routes.use('/', categoryPostRoute) 
 routes.use('/', categoryGetRoute)
 routes.use('/', categoryDeleteRoute) 
 routes.use('/', categoryPutRoute)
 routes.use('/', categoryImageGetRoute)
 routes.use('/', serviceGetRoute)
+routes.use('/', serviceImageGetRoute)
+// routes.use('/', serviceImageGetRoute)
 routes.use('/', servicePostRoute)
 routes.use('/', serviceDeleteRoute)
 routes.use('/', servicePutRoute)
