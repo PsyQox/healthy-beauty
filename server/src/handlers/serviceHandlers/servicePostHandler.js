@@ -17,6 +17,9 @@ const servicePostHandler = async (req, res) => {
         const result = await serviceAddController({ image, name, description, price, tblCategoryId })
         res.status(201).json(result)    
     } catch (error) {
+        if (file) {
+            fs.unlinkSync(`./uploads/serviceImg/${file.filename}`)
+        }
         res.status(error.status || 500).json({ error:error.message })
     }
     
