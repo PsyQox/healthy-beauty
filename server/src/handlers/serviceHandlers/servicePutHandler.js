@@ -2,10 +2,10 @@ const serviceUpdateController = require("../../controllers/serviceControllers/se
 
 
 const servicePutHandler = async (req, res) => {
-    try {
-        const file = req.file
-        const { id } = req.params
-        const { name, description, price, tblCategoryId } = req.body
+    const file = req.file
+    const { id } = req.params
+    const { name, description, price, tblCategoryId } = req.body
+    try {    
 
         if (!id.trim() || !tblCategoryId.trim()) return res.status(401).json({error: "ID or Category ID not provided"})      
 
