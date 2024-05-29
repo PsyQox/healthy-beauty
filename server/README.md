@@ -9,3 +9,7 @@ DB_PASSWORD = password
 DB_HOST = localhost
 <br>
 DB_NAME = db name
+<br>
+URL_SERVER = direccion de tu server
+<br>
+PORT= puerto del server
