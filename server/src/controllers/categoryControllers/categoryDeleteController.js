@@ -1,11 +1,20 @@
 const {tbl_category} = require('../../db')
 const fs = require('fs')
+const path = require('node:path')
+const imageExists = require('../../utils/imageExists')
 
 const categoryDeleteController = async (id) => {
     const category = await tbl_category.findByPk(id)
-    const imageSplit = category.image.split('/')
-    const imageName = imageSplit[imageSplit.length - 1]
-    fs.unlinkSync(`./uploads/categoryImg/${imageName}`)
+    if (category) {
+        const imageSplit = category.image.split('/')
+        const imageName = imageSplit[imageSplit.length - 1]
+        const urlImage = path.join(__dirname, '../../../uploads/categoryImg', imageName)
+        const isExist = imageExists(urlImage)
+        if(isExist){
+            
+            fs.unlinkSync(`./uploads/categoryImg/${imageName}`)
+        }   
+    }
     
     const result = await tbl_category.destroy({where: {id: id}})
     if (result === 1) {
