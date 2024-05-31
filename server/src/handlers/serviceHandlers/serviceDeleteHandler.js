@@ -3,8 +3,8 @@ const serviceDeleteController = require("../../controllers/serviceControllers/se
 
 const serviceDeleteHandler = async (req, res)=>{
     const { id } = req.params
-    if (!id.trim()) return res.status(401).json({ error: "No ID provided" })
     try {
+        if (!id.trim()) return res.status(401).json({ error: "No ID provided" })
         const result = await serviceDeleteController(id)
         res.status(200).json(result)
     } catch (error) {

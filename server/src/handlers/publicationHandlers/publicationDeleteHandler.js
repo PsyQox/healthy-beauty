@@ -4,8 +4,8 @@ const publicationDeleteController = require("../../controllers/publicationContro
 
 const publicationDeleteHandler = async (req, res)=>{
     const { id } = req.params
-    if (!id.trim()) return res.status(401).json({ error: "No ID provided" })
     try {
+        if (!id.trim()) return res.status(401).json({ error: "No ID provided" })
         const result = await publicationDeleteController(id)
         res.status(200).json(result)
     } catch (error) {
