@@ -3,8 +3,8 @@ const categoryDeleteController = require('../../controllers/categoryControllers/
 
 const categoryDeleteHandler = async (req, res)=>{
     const { id } = req.params
-    if (!id.trim()) return res.status(401).json({ error: "No ID provided" })
     try {
+    if (!id.trim()) return res.status(401).json({ error: "No ID provided" })
         const result = await categoryDeleteController(id)
         res.status(200).json(result)
     } catch (error) {
