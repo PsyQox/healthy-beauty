@@ -29,6 +29,9 @@ const servicePutHandler = async (req, res) => {
 
         }
     } catch (error) {
+        if (file) {
+            fs.unlinkSync(`./uploads/serviceImg/${file.filename}`)
+        }
         res.status(500).json({ error: error.message })
     }
 }

@@ -25,6 +25,9 @@ const categoryPutHandler = async (req, res) => {
         }
         
     } catch (error) {
+        if(file){
+            fs.unlinkSync(`./uploads/categoryImg/${file.filename}`)
+        }
         res.status(500).json({ error: error.message }) 
     }  
 }

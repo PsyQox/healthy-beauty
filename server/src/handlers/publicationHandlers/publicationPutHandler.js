@@ -17,6 +17,11 @@ const publicationPutHandler = async (req, res) => {
       
         
     } catch (error) {
+        if (files.length > 0) {
+            files.forEach(file => {
+                fs.unlinkSync(`./uploads/publicationImg/${file.filename}`)
+            });
+        }
         res.status(500).json({ error: error.message })
     }
 }
