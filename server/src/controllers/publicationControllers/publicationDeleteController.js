@@ -1,5 +1,7 @@
 const fs = require('node:fs')
 const { tbl_publication } = require('../../db')
+const path = require('node:path')
+const imageExists = require('../../utils/imageExists')
 
 const publicationDeleteController = async (id) => {
     const publication = await tbl_publication.findByPk(id)
@@ -11,8 +13,12 @@ const publicationDeleteController = async (id) => {
             images.forEach((img) => {
                 const imageSplit = img.split('/')
                 const imageName = imageSplit[imageSplit.length - 1]
-                fs.unlinkSync(`./uploads/publicationImg/${imageName}`)
-                
+                const urlImage = path.join(__dirname, '../../../uploads/publicationImg', imageName)
+                const isExist = imageExists(urlImage)
+
+                if(isExist){
+                    fs.unlinkSync(`./uploads/publicationImg/${imageName}`)
+                }
             })    
         }    
     }
