@@ -13,3 +13,5 @@ DB_NAME = db name
 URL_SERVER = direccion de tu server
 <br>
 PORT= puerto del server
+<br>
+SECRET=tu secret
