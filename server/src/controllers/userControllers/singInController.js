@@ -1,5 +1,8 @@
+require('dotenv').config()
 const { tbl_user } = require('../../db')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const { SECRET } = process.env
 
 const singInController = async ({ email, password }) => {
     const user = await tbl_user.findOne({where: {
@@ -18,7 +21,12 @@ const singInController = async ({ email, password }) => {
         error.status= 404
         throw error
     }else{
-        return user
+        const userData = { name:user.name, email: user.email, privilege: user.privilege }
+        const token = jwt.sign(userData, SECRET,{
+            expiresIn: '5m'
+        })
+        userData.accessToken = token
+        return userData
     }
 }
 
